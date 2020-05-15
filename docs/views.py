@@ -5,5 +5,5 @@ from .models import Document
 
 class DocumentListView(ListView):
     model = Document
-    template_name = 'index.html'
+    template_name = 'files.html'
     context_object_name = 'docs'
