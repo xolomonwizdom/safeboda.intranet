@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    {% for activity in activities %}
+    <div class="row">
+        {% if activity.steps  %}
+        <div class="col-md-7">
+            <h3>{{activity.title}}</h3>
+            {{activity.description|safe}}
+        </div>
+        <div class="col-md-5">
+            <details>Steps</details>
+            <summary>
+                {{activity.steps|safe}}
+            </summary>
+        </div>
+        {% else %}
+        <div class="col-md-12">
+            <h3>{{activity.title}}</h3>
+            {{activity.description|safe}}
+        </div>
+        {% endif %}
+
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
