@@ -25,7 +25,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
-    path('files/', ActivityList.as_view(), name='files'),
+    path('files/', DocumentListView.as_view(), name='files'),
+    path('activities/', ActivityList.as_view(), name='activity'),
     path('search/', search, name='search'),
     path('accounts/', include('accounts.urls')),
     path('tinymce/', include('tinymce.urls')),
