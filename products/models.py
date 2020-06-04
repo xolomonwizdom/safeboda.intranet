@@ -35,6 +35,7 @@ class Notification(models.Model):
 class Question(models.Model):
     title = models.CharField(max_length=200)
     answer = HTMLField()
+    featured = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
