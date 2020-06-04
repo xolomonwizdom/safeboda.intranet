@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    {% for activity in activities %}
+    <div class="row">
+        <div class="col-md-12">
+
+            <details class="card p-3">
+                <summary class="mt-2">{{activity__product.title}}</summary>
+                <h3>{{activity.title}}</h3>
+                <p>{{activity.description|safe}}</p>
+            </details>
+
+        </div>
+
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
