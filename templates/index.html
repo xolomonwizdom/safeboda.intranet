@@ -69,9 +69,12 @@ As a call center, Communication is our priority. Always communicate with the cus
         </div>
         <div class="col-md-4">
           <h5 class="card-title">Recent Notifications</h5>
+          {% for notification in notifications %}
           <div class="alert alert-success" role="alert">
-            A simple success alert—check it out!
+            {{notification.title}}
           </div>
+          {% endfor %}
+
           <div class="alert alert-danger" role="alert">
             A simple danger alert—check it out!
           </div>
@@ -83,7 +86,7 @@ As a call center, Communication is our priority. Always communicate with the cus
 
     <div class="container">
       <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-8">
           <div class="card">
 
             <div class="card-body">
@@ -99,6 +102,24 @@ As a call center, Communication is our priority. Always communicate with the cus
     
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="container">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+            <h5 class="card-title">
+                FAQs
+              </h5>
+              {% for question in questions %}
+              <details class="card p-3">
+                  <summary class="mt-2">{{question.title}}</summary>
+                  <p>{{question.answer|safe}}</p>
+              </details>
+              {% endfor %}
         </div>
       </div>
     </div>
