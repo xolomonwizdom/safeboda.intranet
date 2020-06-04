@@ -9,7 +9,7 @@
             {% for question in questions %}
             <details class="card p-3">
                 <summary class="mt-2">{{question.title}}</summary>
-                <p>{{question.answer}}</p>
+                <p>{{question.answer|safe}}</p>
             </details>
             {% endfor %}
 
