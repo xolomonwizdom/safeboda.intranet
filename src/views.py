@@ -8,5 +8,5 @@ class Index(View):
 
     def get(self, request, *args, **kwargs):
         recent_notifications = Notification.objects.all()[1:4]
-        featured_qns = Question.objects.all()[:3]
+        featured_qns = Question.objects.filter(featured=True)[:3]
         return render(request, self.template_name, {'notifications': recent_notifications, 'questions': featured_qns})
