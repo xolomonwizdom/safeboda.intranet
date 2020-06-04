@@ -3,14 +3,17 @@
 {% block content %}
 
 <div class="container">
-    {% for activity in activities %}
+    {% for product in products %}
     <div class="row">
         <div class="col-md-12">
 
             <details class="card p-3">
-                <summary class="mt-2">{{activity__product.title}}</summary>
+                <summary class="mt-2">{{product.name}}</summary>
+                {% for activity in product.activity_set.all %}
                 <h3>{{activity.title}}</h3>
                 <p>{{activity.description|safe}}</p>
+                {% endfor %}
+
             </details>
 
         </div>
