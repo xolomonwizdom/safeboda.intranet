@@ -3,10 +3,22 @@
 {% block content %}
 
 <div class="container">
-    {% for product in products %}
+    
     <div class="row">
         <div class="col-md-12">
-
+            <form action="{% url 'search' %}">
+                <div class="input-group mb-3">
+                    <input type="search" name="q" class="form-control"  aria-describedby="helpText">
+                    
+                    <div class="input-group-append">
+                        <span class="input-group-text">SEARCH</span>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 mt-4">
+            {% for product in products %}
             <details class="card p-3">
                 <summary class="mt-2">{{product.name}}</summary>
                 {% for activity in product.activity_set.all %}
@@ -15,12 +27,12 @@
                 {% endfor %}
 
             </details>
-
+            {% endfor %}
         </div>
 
 
     </div>
-    {% endfor %}
+    
 
 </div>
 
