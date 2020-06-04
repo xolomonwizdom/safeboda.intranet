@@ -19,13 +19,14 @@ from django.views.generic import TemplateView
 from docs.views import DocumentListView
 from products.views import ProductListView, QuestionList
 from contents.views import search
+from .views import Index
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('', Index.as_view(), name='home'),
     path('faq', QuestionList.as_view(), name='faq'),
     path('files/', DocumentListView.as_view(), name='files'),
     path('products/', ProductListView.as_view(), name='products'),
