@@ -38,12 +38,13 @@
               
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
+                      {% if request.user.is_authenticated %}
                       <li class="nav-item active">
                         <a class="nav-link" href="{% url 'home' %}"
                           >Home <span class="sr-only">(current)</span></a
                         >
                       </li>
-                      {% if request.user.is_authenticated %}
+                      
                       <li class="nav-item active">
                           <a class="nav-link" href="{% url 'files' %}"
                             >Files</a
@@ -69,6 +70,7 @@
                             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                         </div>
                     </li>
+                    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-primary my-1 my-sm-0" type="button">Ask</button>
                       {% else %}
                       <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">LOGIN</a>
@@ -77,11 +79,12 @@
 
                     </ul>
                     
-                    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-primary my-1 my-sm-0" type="button">Ask</button>
+                    
                   </div>
                 </div>
               </nav>
 
+          {% if request.user.is_authenticated %}
        <div class="container mt-2">
           <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">{{notification.title}}</h4>
@@ -91,6 +94,8 @@
           </div>
         
        </div>
+
+       {% endif %}
     {% block content %}
     {% endblock content %}
 
