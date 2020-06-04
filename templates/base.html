@@ -86,9 +86,13 @@
               </nav>
 
        <div class="container mt-2">
-        <div class="alert alert-danger" role="alert">
-          A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-        </div>
+          <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">{{notification.title}}</h4>
+            <p>{{notification.content|safe}}</p>
+            <hr>
+            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+          </div>
+        
        </div>
     {% block content %}
     {% endblock content %}
