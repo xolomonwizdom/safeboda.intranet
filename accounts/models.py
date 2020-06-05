@@ -19,7 +19,7 @@ class Profile(models.Model):
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    team = models.CharField(max_length=2, choices=TEAM_CHOICES, default='OT',)
+    team = models.CharField(max_length=150, choices=TEAM_CHOICES, default='OT',)
     avatar = models.ImageField(blank=True, null=True, upload_to='avatars/', default='avatars/avatar.png')
 
 
