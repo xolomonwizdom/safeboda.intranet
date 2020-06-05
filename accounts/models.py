@@ -8,8 +8,18 @@ class User(AbstractUser):
 
 
 class Profile(models.Model):
+
+    TEAM_CHOICES = (
+        ('IB', 'INBOUND'),
+        ('OB', 'OUTBOUND'),
+        ('WI', 'WALK IN'),
+        ('FD', 'FOOD'),
+        ('SM', 'SOCIAL MEDIA'),
+        ('OT', 'OTHER')
+    )
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    team = models.CharField(max_length=10)
+    team = models.CharField(max_length=2, default='OT', choices=TEAM_CHOICES)
     avatar = models.ImageField(blank=True, null=True, upload_to='avatars/', default='avatars/avatar.png')
 
 

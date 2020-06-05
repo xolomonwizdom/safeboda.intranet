@@ -6,7 +6,17 @@ User = get_user_model()
 
 
 class RegistrationForm(UserCreationForm):
-    team = forms.CharField(max_length=10)
+
+    TEAM_CHOICES = (
+        ('IB', 'INBOUND'),
+        ('OB', 'OUTBOUND'),
+        ('WI', 'WALK IN'),
+        ('FD', 'FOOD'),
+        ('SM', 'SOCIAL MEDIA'),
+        ('OT', 'OTHER')
+    )
+
+    team = forms.ChoiceField(choices=TEAM_CHOICES)
 
     class Meta:
         model = User
