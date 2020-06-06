@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-12 mt-4">
             {% for product in products %}
-            <details class="card p-3">
+            <details class="card p-3 shadow">
                 <summary class="mt-2">{{product.name}}</summary>
                 {% for activity in product.activity_set.all %}
                 <h3>{{activity.title}}</h3>

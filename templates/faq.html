@@ -4,27 +4,20 @@
 
 <div class="container">
     <div class="row">
-        <h3>Frequently Asked Questions (FAQs).</h3>
         <div class="col-md-12">
+                <h3>Frequently Asked Questions (FAQs).</h3>
             {% for question in questions %}
-            <details class="card p-3">
+            <details class="card p-3 shadow">
                 <summary class="mt-2">{{question.title}}</summary>
                 <p>{{question.answer|safe}}</p>
             </details>
             {% endfor %}
 
-            <details class="card p-3">
+            <!-- <details class="card p-3">
                 <summary class="mt-2">Question 2</summary>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, impedit. Blanditiis iure dignissimos, earum incidunt quisquam neque? Obcaecati delectus aperiam assumenda voluptatibus? Error repellendus explicabo aperiam vel vero quo ad.</p>
-            </details>
-            <details class="card p-3">
-                <summary class="mt-2">Question 3</summary>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, impedit. Blanditiis iure dignissimos, earum incidunt quisquam neque? Obcaecati delectus aperiam assumenda voluptatibus? Error repellendus explicabo aperiam vel vero quo ad.</p>
-            </details>
-            <details class="card p-3">
-                <summary class="mt-2">Question 4</summary>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, impedit. Blanditiis iure dignissimos, earum incidunt quisquam neque? Obcaecati delectus aperiam assumenda voluptatibus? Error repellendus explicabo aperiam vel vero quo ad.</p>
-            </details>
+            </details> -->
+            
         </div>
     </div>
 </div>
