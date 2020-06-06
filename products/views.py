@@ -2,10 +2,10 @@ from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
-from .models import Product, Question
+from .models import ProductType, Question
 
 class ProductListView(ListView):
-    model = Product
+    model = ProductType
     context_object_name = 'products'
     template_name = 'products.html'
 
