@@ -1,24 +1,22 @@
 from django.db import models
 from tinymce import HTMLField
 
-class Product(models.Model):
+class ProductType(models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self):
         return self.name
 
 
-class Activity(models.Model):
+class Scenario(models.Model):
     name = models.CharField(max_length=200)
     description = HTMLField()
     procedures = HTMLField(blank=True)
-    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    product = models.ForeignKey('ProductType', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
-    class Meta:
-        verbose_name_plural = 'Activities'
 
 
 class Notification(models.Model):
@@ -39,3 +37,11 @@ class Question(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Tool(models.Model):
+    name = models.CharField(max_length=200)
+    link = models.URLField()
+
+    def __str__(self):
+        return self.name
