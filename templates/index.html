@@ -70,14 +70,11 @@ As a call center, Communication is our priority. Always communicate with the cus
         <div class="col-md-4">
           <h5 class="card-title">Recent Notifications</h5>
           {% for notification in notifications %}
-          <div class="alert alert-success" role="alert">
+          <div class="alert alert-{% if notification.resolved %}success{% else %}danger{% endif%}" role="alert">
             {{notification.title}}
           </div>
           {% endfor %}
 
-          <div class="alert alert-danger" role="alert">
-            A simple danger alert—check it out!
-          </div>
         </div>
       </div>
     </div>
