@@ -6,6 +6,9 @@ from django.dispatch import receiver
 class User(AbstractUser):
     email = models.EmailField()
 
+    def logged_in(self):
+        return self.last_login
+
 
 class Profile(models.Model):
 
@@ -21,6 +24,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     team = models.CharField(max_length=150, choices=TEAM_CHOICES, default='OT',)
     avatar = models.ImageField(blank=True, null=True, upload_to='avatars/', default='avatars/avatar.png')
+
+    def __str__(self):
+        return self.user.username
 
 
 """receivers to add a Profile for newly created users"""
