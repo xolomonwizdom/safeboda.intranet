@@ -18,6 +18,6 @@ class RegistrationForm(UserCreationForm):
 
     team = forms.ChoiceField(choices=TEAM_CHOICES)
 
-    class Meta:
+    class Meta(UserCreationForm.Meta):
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'team', 'password1', 'password2')
+        fields = UserCreationForm.Meta.fields + ('email', 'team',)

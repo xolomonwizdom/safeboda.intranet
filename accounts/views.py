@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View
 from django.contrib import messages
+from django.http import HttpResponse
 
 from .forms import RegistrationForm
 
@@ -19,6 +20,7 @@ class RegistrationView(View):
             user = form.save()
             user.profile.team = form.cleaned_data.get('team')
             user.save()
-            messages.success(request, 'Registration successful')
-        return redirect('login')
+            return redirect('login')
+        else:
+            return render(request, self.template_name, {'form': form})
 

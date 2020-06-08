@@ -9,7 +9,7 @@
       <div class="card">
         <div class="card-body">
           <h3 class="card-title">Sign up</h3>
-          <form method="post" novalidate>
+          <form method="post" action="{% url 'register' %}">
             {% csrf_token %}
             {% for hidden_field in form.hidden_fields %}
     {{ hidden_field }}
