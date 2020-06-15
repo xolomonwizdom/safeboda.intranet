@@ -22,8 +22,11 @@
             <details class="card p-3 shadow">
                 <summary class="mt-2">{{product.name}}</summary>
                 {% for activity in product.scenario_set.all %}
-                <h3>{{activity.title}}</h3>
-                <p>{{activity.description|safe}}</p>
+                <details class="card p-2 mt-2 shadow">
+                    <summary class="mt-2">{{activity.name}}</summary>
+                    <p>{{activity.description|safe}}</p>
+                </details>
+                
                 {% endfor %}
 
             </details>
