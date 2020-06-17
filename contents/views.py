@@ -2,6 +2,7 @@ from django.db.models import Count, Q
 from django.shortcuts import render
 from django.views.generic import ListView
 
+from products.models import Scenario
 from .models import Activity
 
 class ActivityList(ListView):
@@ -11,11 +12,11 @@ class ActivityList(ListView):
 
 
 def search(request):
-    queryset = Activity.objects.all()
+    queryset = Scenario.objects.all()
     query = request.GET.get('q')
     if query:
         queryset = queryset.filter(
-            Q(title__icontains=query) |
+            Q(name__icontains=query) |
             Q(description__icontains=query)
         ).distinct()
 

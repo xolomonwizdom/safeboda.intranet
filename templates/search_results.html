@@ -8,8 +8,8 @@
             <h5>Search results</h5>
             <hr>
             {% for activity in queryset %}
-
-            <a href="{% url 'products' %}">{{ activity.title }}</a>
+            {{activity.product.name}} > 
+            <a href="{% url 'products' %}">{{ activity.name }}</a>
             <hr>
 
             {% endfor %}
